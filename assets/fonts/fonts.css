@@ -1,0 +1,13 @@
+@font-face {
+font-family: 'Fonarto XT Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Fonarto XT Regular'), url('Fonarto XT.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Fonarto Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Fonarto Regular'), url('Fonarto.woff') format('woff');
+}

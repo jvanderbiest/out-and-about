@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Out and About</title>
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Out and about" />
+  <meta name="apple-mobile-web-app-title" content="Out and about" />
+  <meta name="msapplication-starturl" content="./" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta http-equiv="cleartype" content="on">
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/fonts.css" />
+
+  <style>
+    html,
+    body {
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+
+      overflow: hidden;
+    }
+
+    #game {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    #loading-screen {
+      font-family: 'Fonarto Regular', 'Arial Narrow', 'Arial';
+      font-weight: normal;
+      color: #ffffff;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      background-color: #000;
+      transition: background-color 2s cubic-bezier(1, 1, 1, 1);
+      transition-delay: 0s;
+      user-select: none;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    .transparent {
+      opacity: 0;
+    }
+
+    .loading {
+      margin-top: 75px;
+    }
+
+    div.logo {
+      position: relative;
+      margin-top: -400px;
+
+    }
+
+    span.out,
+    span.about {
+      position: absolute;
+      font-size: 196px;
+    }
+
+    span.out {
+      top: 24px;
+      left: -226px;
+    }
+
+    span.and,
+    span.io {
+      position: absolute;
+      font-size: 64px;
+    }
+
+    span.and {
+
+      top: 154px;
+      left: 96px;
+      color: lightgray;
+    }
+
+    span.about {
+      left: -260px;
+      top: 160px;
+    }
+
+    span.io {
+      left: 284px;
+      top: 284px;
+    }
+
+    @media only screen and (max-width: 920px),
+    screen and (max-height: 678px) {
+      span.out {
+        font-size: 96px;
+        left: -82px;
+      }
+
+      span.and {
+        font-size: 32px;
+        left: 76px;
+        top: 86px;
+      }
+
+      span.io {
+        font-size: 36px;
+        left: 168px;
+        top: 144px;
+      }
+
+      span.about {
+        font-size: 96px;
+        left: -98px;
+        top: 88px;
+      }
+
+      div.logo {
+        margin-top: -184px;
+      }
+    }
+  </style>
+  <script>
+    var colors = ["red", "orange", "green", "blue", "purple"];
+    var currentIndex = 0;
+
+    var bgInterval = setInterval(function () {
+      document.getElementById("loading-screen").style.cssText = "background-color: " + colors[currentIndex];
+      currentIndex++;
+      if (currentIndex == undefined || currentIndex >= colors.length) {
+        currentIndex = 0;
+      }
+    }, 1000);
+
+    function stopInterval() {
+      clearInterval(bgInterval)
+    }
+  </script>
+</head>
+
+<body>
+
+  <noscript>Please enable javascript to continue using this application.</noscript>
+  <div id="loading-screen">
+    <div>
+      <div class="logo">
+        <span class="out">out</span>
+        <span class="and">and</span>
+        <span class="about">about</span>
+        <span class="io">.io</span>
+
+      </div>
+    </div>
+    <h3 class="loading">loading...</h3>
+
+  </div>
+
+  <div id="game"></div>
+  <!-- GameAnalytics -->
+  <script>
+    window.GameAnalytics = window.GameAnalytics || function () { (GameAnalytics.q = GameAnalytics.q || []).push(arguments) };
+    GameAnalytics("setEnabledInfoLog", true);
+    GameAnalytics("initialize", "81e0ab43be33bfa7540ca53ee93b1d06", "56c0af2a9e3bde29bb094922ac5f7c43b98b794c");
+  </script>
+  <script async src='//download.gameanalytics.com/js/GameAnalytics-4.0.10.min.js'></script>
+  <!-- End GameAnalytics -->
+</body>
+</html>

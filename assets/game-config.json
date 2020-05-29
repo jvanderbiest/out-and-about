@@ -1,0 +1,627 @@
+{
+    "player": {
+        "width": 21,
+        "height": 35,
+        "texture": "player"
+    },
+    "levels": [
+        {
+            "background": 0,
+            "playerStart": {
+                "x": 10,
+                "y": 1545
+            },
+            "platform": {
+                "meta": {
+                    "levelHeight": 896,
+                    "levelWidth": 2400  
+                },
+                "coins": [
+                    {
+                        "frame": "gold-star-",
+                        "positions": [
+                            {
+                                "x": 10,
+                                "y": 7,
+                                "xOffset": 30,
+                                "yOffset": 30,
+                                "scale": 0.5
+                            },
+                            {
+                                "x": 22,
+                                "y": 5,
+                                "xOffset": 30,
+                                "yOffset": 30,
+                                "xRange": 1,
+                                "scale": 0.5
+                            },
+                            {
+                                "x": 15,
+                                "y": 7,
+                                "xOffset": 0,
+                                "yOffset": 10,
+                                "scale": 0.25
+                            },
+                            {
+                                "x": 16,
+                                "y": 7,
+                                "xOffset": 30,
+                                "yOffset": 50,
+                                "scale": 0.25
+                            },
+                            {
+                                "x": 18,
+                                "y": 7,
+                                "xOffset": 0,
+                                "yOffset": 10,
+                                "scale": 0.25
+                            }
+                        ]
+                    }
+                ],
+                "tiles": [
+                    {
+                        "frame": "mushroom02",
+                        "positions": [
+                            {
+                                "x": 0,
+                                "y": 6,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "grass05",
+                        "positions": [
+                            {
+                                "x": 0,
+                                "y": 6,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground12",
+                        "positions": [
+                            {
+                                "x": 4,
+                                "y": 7,
+                                "yOffset": 67,
+                                "xOffset": -20
+                            },
+                            {
+                                "x": 6,
+                                "y": 7,
+                                "yOffset": 67,
+                                "xOffset": -20
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground11",
+                        "positions": [
+                            {
+                                "x": 5,
+                                "y": 7,
+                                "yOffset": 67,
+                                "xOffset": -20
+                            },
+                            {
+                                "x": 21,
+                                "y": 9,
+                                "yOffset": 44
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "grass07",
+                        "positions": [
+                            {
+                                "x": 6,
+                                "y": 7,
+                                "yOffset": 4,
+                                "xOffset": -20,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "grass06",
+                        "positions": [
+                            {
+                                "x": 5,
+                                "y": 7,
+                                "yOffset": 4,
+                                "xOffset": -20,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "grass05",
+                        "positions": [
+                            {
+                                "x": 4,
+                                "y": 7,
+                                "yOffset": 4,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "stone01",
+                        "positions": [
+                            {
+                                "x": 18,
+                                "y": 5,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "stone04",
+                        "positions": [
+                            {
+                                "x": 5,
+                                "y": 7,
+                                "yOffset": 4,
+                                "xOffset": 20,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "leafy_hollow01",
+                        "positions": [
+                            {
+                                "x": 0,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow02",
+                        "positions": [
+                            {
+                                "x": 0,
+                                "y": 4
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground01",
+                        "positions": [
+                            {
+                                "x": 8,
+                                "y": 5
+                            },
+                            {
+                                "x": 11,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground02",
+                        "positions": [
+                            {
+                                "x": 9,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    
+                    {
+                        "frame": "ground08",
+                        "positions": [
+                            {
+                                "x": 8,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 10,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 23,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 25,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 22,
+                                "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 24,
+                                "y": 7,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow06",
+                        "positions": [
+                            {
+                                "x": 0,
+                                "y": 3
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "leafy_hollow03",
+                        "positions": [
+                            {
+                                "x": 1,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "leafy_hollow05",
+                        "positions": [
+                            {
+                                "x": 2,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow middle blank",
+                        "positions": [
+                            {
+                                "x": 1,
+                                "y": 4
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow14",
+                        "positions": [
+                            {
+                                "x": 2,
+                                "y": 4
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow10",
+                        "positions": [
+                            {
+                                "x": 2,
+                                "y": 3
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "hollow15",
+                        "positions": [
+                            {
+                                "x": 1,
+                                "y": 3
+                            }
+                        ]
+                    },
+                    
+                    {
+                        "frame": "flowers copy",
+                        "positions": [
+                            {
+                                "x": 5,
+                                "y": 4,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground07",
+                        "positions": [
+                            {
+                                "x": 9,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 9,
+                                "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 10,
+                                "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 11,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 11,
+                                "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 22,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 24,
+                                "y": 6,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 23,
+                                "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 25,
+                                "y": 7,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "spikes and grass",
+                        "positions": [
+                            {
+                                "x": 21,
+                                "y": 7
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground03",
+                        "positions": [
+                            {
+                                "x": 9,
+                                "y": 7
+                            },
+                            {
+                                "x": 11,
+                                "y": 7
+                            },
+                            {
+                                "x": 22,
+                                "y": 6,
+                                "xRange": 2,
+                                "yOffset": 34
+                            },
+                            {
+                                "x": 23,
+                                "y": 7,
+                                "xRange": 2,
+                                "yOffset": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground09",
+                        "positions": [
+                            {
+                                "x": 3,
+                                "y": 4
+                            },
+                            {
+                                "x": 5,
+                                "y": 3,
+                                "xRange": 7,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 28,
+                                "y": 3,
+                                "xRange": 20,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 8,
+                                "y": 7
+                            },
+                            {
+                                "x": 10,
+                                "y": 8
+                            },
+                            {
+                                "x": 21,
+                                "y": 6
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground10",
+                        "positions": [
+                            {
+                                "x": 4,
+                                "y": 3,
+                                "xRange": 8,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 27,
+                                "y": 3,
+                                "xRange": 20,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 9,
+                                "y": 8
+                            },
+                            {
+                                "x": 13,
+                                "y": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground06",
+                        "positions": [
+                            {
+                                "x": 25,
+                                "y": 8,
+                                "yOffset": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "ground05",
+                        "positions": [
+                            {
+                                "x": 3,
+                                "y": 3
+                            },
+                            {
+                                "x": 13,
+                                "y": 4
+                            },
+                            {
+                                "x": 13,
+                                "y": 3,
+                                "xRange": 6
+                            },
+                            {
+                                "x": 14,
+                                "y": 4
+                            },
+                            {
+                                "x": 24,
+                                "y": 8,
+                                "yOffset": 5
+                            },
+                            {
+                                "x": 25,
+                                "y": 9,
+                                "yOffset": 5
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "water1_transp",
+                        "positions": [
+                            {
+                                "x": 14,
+                                "y": 5,
+                                "xRange": 5,
+                                "xSkip": 1,
+                                "yOffset": 24,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "water2_transp",
+                        "positions": [
+                            {
+                                "x": 15,
+                                "y": 5,
+                                "xRange": 3,
+                                "xSkip": 1,
+                                "yOffset": 24,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "water_full_1_transp",
+                        "positions": [
+                            {
+                                "x": 15,
+                                "y": 4,
+                                "xRange": 3,
+                                "xSkip": 1,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "water_full_2_transp",
+                        "positions": [
+                            {
+                                "x": 16,
+                                "y": 4,
+                                "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "rocky01",
+                        "positions": [
+                            {
+                                "x": 18,
+                                "y": 4
+                            },
+                            {
+                                "x": 19,
+                                "y": 5
+                            },
+                            {
+                                "x": 20,
+                                "y": 3,
+                                "xRange": 6,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 21,
+                                "y": 4,
+                                "xRange": 5,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 26,
+                                "y": 6,
+                                "yRange": 7,
+                                "ySkip": 1
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "rocky02",
+                        "positions": [
+                            {
+                                "x": 16,
+                                "y": 6,
+                                "yOffset": 20
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "rocky03",
+                        "positions": [
+                            {
+                                "x": 19,
+                                "y": 4
+                            },
+                            {
+                                "x": 21,
+                                "y": 3,
+                                "xRange": 5,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 20,
+                                "y": 4,
+                                "xRange": 6,
+                                "xSkip": 1
+                            },
+                            {
+                                "x": 26,
+                                "y": 5,
+                                "yRange": 8,
+                                "ySkip": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
