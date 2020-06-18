@@ -1,13 +1,14 @@
 import { ImageConstants } from "../constants/image.constants"
-import TileDebugComponent from "./tileDebug.component"
 import TileComponent from "./tile.component";
 import { PositionCalculator } from "../helpers/positionCalculator";
-
+  
 
 export default class TileGroupDebugComponent extends Phaser.GameObjects.Group {
 
-  addTile = (x: number, y: number, frame: string) => {
-    this.add(new TileComponent(this.scene, x, y, ImageConstants.GameTexture, frame));
+  addTile = (originalPosition: TilePosition, x: number, y: number, frame: string) => {
+    var tileComponent = new TileComponent(this.scene, x, y, ImageConstants.GameTexture, frame, originalPosition);
+
+    this.add(tileComponent);
   }
 
   constructor(scene: Phaser.Scene, gameHeight: number, gameWidth: number, tiles: TileDetail[]) {
@@ -19,7 +20,7 @@ export default class TileGroupDebugComponent extends Phaser.GameObjects.Group {
     });
 
     var debug: boolean;
-    // debug = true;
+    debug = false;
 
     if (debug) {
       var totalHeightSquares = gameHeight / tile_size;

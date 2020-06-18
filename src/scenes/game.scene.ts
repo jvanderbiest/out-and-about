@@ -14,6 +14,8 @@ import DoorKeySprite from '../components/doorKey.component';
 import Inventory from '../components/inventory.component';
 import { SceneConstants } from '../constants/scene.constants';
 import TileGroupDebugComponent from '../components/tileGroupDebug.component';
+import TileComponent from '../components/tile.component';
+import PlayerComponent from '../components/player.component';
 
 export default class GameScene extends Phaser.Scene {
 	player: Player;
@@ -43,6 +45,7 @@ export default class GameScene extends Phaser.Scene {
 		});
 
 		var configuration: Configuration = JSON.parse(this.game.cache.text.get(TextConstants.Configuration));
+
 		var level = configuration.levels[0];
 
 		this.cameras.main.fadeIn();
@@ -61,17 +64,17 @@ export default class GameScene extends Phaser.Scene {
 		var gameWidth = this.sys.game.config.width as number;
 		var totalGameWidth = gameWidth * 1.5;
 
-		var avoidCollisionTiles = level.platform.tiles.filter((tile) => 
-		tile.positions.every(position => position.noCollide));
+		var avoidCollisionTiles = level.platform.tiles.filter((tile) =>
+			tile.positions.every(position => position.noCollide));
 		var avoidCollisionTilesGroup = new TileGroupDebugComponent(this, totalGameHeight, totalGameWidth, avoidCollisionTiles);
 
-		
-		var collisionTilesDebug = level.platform.tiles.filter((tile) => 
-		tile.positions.every(position => !position.noCollide));
+
+		var collisionTilesDebug = level.platform.tiles.filter((tile) =>
+			tile.positions.every(position => !position.noCollide));
 		var collisionTilesGroup = new TileGroupDebugComponent(this, totalGameHeight, totalGameWidth, collisionTilesDebug);
 
 
-		
+
 		var goal = new DoorGoalSprite(this)
 		var key = new DoorKeySprite(this)
 
@@ -85,9 +88,50 @@ export default class GameScene extends Phaser.Scene {
 		this.enemiesGroup = new EnemiesGroup(this)
 
 		this.cameras.main.startFollow(this.player);
-		
-		this.physics.add.collider(collisionTilesGroup, this.player);
+
+		// filter out colliders and collide them later for jumping hack on dynamic objects.
+		this.physics.add.collider(collisionTilesGroup.getChildren().filter((x: TileComponent) => !x.tileColliders), this.player);
 		this.physics.add.collider(collisionTilesGroup, this.enemiesGroup);
+
+		this.physics.add.collider(collisionTilesGroup, this.enemiesGroup);
+
+		collisionTilesGroup.getChildren().forEach((tileComponent: TileComponent) => {
+			if (tileComponent.tileColliders && tileComponent.tileColliders.length > 0) {
+				tileComponent.tileColliders.forEach(tileColliderName => {
+					// get the tile object by name
+					var matchedColliders = collisionTilesGroup.getChildren().filter((tileCollider: TileComponent) => {
+						if (tileCollider.tileName == tileColliderName) {
+							return true;
+						}
+						return false;
+					});
+
+					if (!matchedColliders || matchedColliders.length == 0) {
+						console.error(`Trying to match a collider for tile with name '${tileColliderName}' but it could not be found.`)
+					}
+
+					if (matchedColliders.length > 1) {
+						console.error(`Trying to match a collider for tile with name '${tileColliderName}' but multiple tiles by name were matched. Name should be unique.`)
+					}
+
+					if (matchedColliders.length == 1) {
+						this.physics.add.collider(matchedColliders[0], tileComponent, (st, mover: TileComponent) => {
+							//@ts-ignore
+							mover.setVelocityX(-(mover.body.velocity.x));
+						});
+					}
+
+					// hack to detect blocked body on dynamic gameobject
+					this.physics.add.collider(tileComponent, this.player, (mover, player: PlayerComponent) => {
+						if (player.body.touching.down) {
+							player.body.blocked.down = true;
+						}
+					});
+				})
+			}
+		});
+		// tileComponent.slide(originalPosition.xSlide);
+
 
 		this.physics.add.overlap(this.player, goal, (player: Player, goal: DoorGoalSprite) => {
 			if (player.hasKey) {
@@ -118,7 +162,7 @@ export default class GameScene extends Phaser.Scene {
 				}
 			}
 		});
-		
+
 		this.physics.add.overlap(this.player, coinGroup, (player, coin) => {
 			// @ts-ignore
 			coin.collect();

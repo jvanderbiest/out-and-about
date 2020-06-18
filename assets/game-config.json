@@ -55,6 +55,55 @@
                                 "xOffset": 0,
                                 "yOffset": 10,
                                 "scale": 0.25
+                            },
+                            {
+                                "x": 16,
+                                "y": 10,
+                                "xOffset": 30,
+                                "yOffset": 30,
+                                "scale": 0.75
+                            },
+                            {
+                                "x": 16,
+                                "y": 9,
+                                "xOffset": 30,
+                                "yOffset": 15,
+                                "scale": 0.5
+                            },
+                            {
+                                "x": 16,
+                                "y": 9,
+                                "xOffset": 30,
+                                "yOffset": 45,
+                                "scale": 0.25
+                            },
+                            {
+                                "x": 16,
+                                "y": 9,
+                                "xOffset": 10,
+                                "yOffset": 40,
+                                "scale": 0.25
+                            },
+                            {
+                                "x": 16,
+                                "y": 9,
+                                "xOffset": 50,
+                                "yOffset": 40,
+                                "scale": 0.25
+                            },
+                            {
+                                "x": 25,
+                                "y": 10,
+                                "xOffset": 30,
+                                "yOffset": 30,
+                                "scale": 0.5
+                            },
+                            {
+                                "x": 24,
+                                "y": 11,
+                                "xOffset": 30,
+                                "yOffset": 30,
+                                "scale": 0.25
                             }
                         ]
                     }
@@ -67,6 +116,15 @@
                                 "x": 0,
                                 "y": 6,
                                 "noCollide": true
+                            }
+                        ]
+                    },
+                    {
+                        "frame": "rocky04",
+                        "positions": [
+                            {
+                                "x": 25,
+                                "y": 11
                             }
                         ]
                     },
@@ -94,6 +152,13 @@
                                 "y": 7,
                                 "yOffset": 67,
                                 "xOffset": -20
+                            },
+                            {
+                                "x": 8,
+                                "y": 11,
+                                "yOffset": 44,
+                                "xSlide": 3,
+                                "colliders": ["middle-gap-left", "middle-gap-right"]
                             }
                         ]
                     },
@@ -107,8 +172,25 @@
                                 "xOffset": -20
                             },
                             {
+                                "name": "middle-gap-left",
+                                "x": 7,
+                                "y": 11,
+                                "yOffset": 44
+                            },
+                            {
+                                "x": 12,
+                                "y": 11,
+                                "name": "middle-gap-right",
+                                "yOffset": 44
+                            },
+                            {
                                 "x": 21,
                                 "y": 9,
+                                "yOffset": 44
+                            },
+                            {
+                                "x": 19,
+                                "y": 10,
                                 "yOffset": 44
                             }
                         ]
@@ -198,6 +280,10 @@
                             {
                                 "x": 11,
                                 "y": 5
+                            },
+                            {
+                                "x": 14,
+                                "y": 10
                             }
                         ]
                     },
@@ -207,6 +293,18 @@
                             {
                                 "x": 9,
                                 "y": 5
+                            },
+                            {
+                                "x": 17,
+                                "y": 10
+                            },
+                            {
+                                "x": 13,
+                                "y": 10
+                            },
+                            {
+                                "x": 15,
+                                "y": 10
                             }
                         ]
                     },
@@ -242,6 +340,20 @@
                             {
                                 "x": 24,
                                 "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 14,
+                                "y": 11,
+                                "xRange": 3,
+                                "xSkip": 1,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 15,
+                                "y": 12,
+                                "xRange": 2,
+                                "xSkip": 1,
                                 "noCollide": true
                             }
                         ]
@@ -366,6 +478,20 @@
                             {
                                 "x": 25,
                                 "y": 7,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 13,
+                                "y": 11,
+                                "xRange": 5,
+                                "xSkip": 1,
+                                "noCollide": true
+                            },
+                            {
+                                "x": 14,
+                                "y": 12,
+                                "xRange": 5,
+                                "xSkip": 1,
                                 "noCollide": true
                             }
                         ]
@@ -580,6 +706,14 @@
                                 "y": 6,
                                 "yRange": 7,
                                 "ySkip": 1
+                            },
+                            {
+                                "x": 24,
+                                "y": 12
+                            },
+                            {
+                                "x": 25,
+                                "y": 12
                             }
                         ]
                     },

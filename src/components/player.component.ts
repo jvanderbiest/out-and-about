@@ -11,17 +11,11 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
     this.setSize(player.width - 10, player.height)
-    // this.scene = scene
     this.setOffset(5, 0);
-    //     this.setSize(21, 35)
-    // this.setPosition(1000, 0)
     this.setPosition(60, 0)
     this.scale = 1.5;
     this.setBounce(0.2)
     this.setCollideWorldBounds(true)
-
-    // var image = this.scene.add.image(this.x, this.y, ImageConstants.GameTexture, 'think-bubble');
-
 
     this.scene.anims.create({
       key: 'run',
@@ -155,10 +149,9 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
       this.anims.play('idle', true)
     }
 
-    if ((cursors.up.isDown || cursors.space.isDown || controls.upIsDown) && this.body.blocked.down) {
+    if ((cursors.up.isDown || cursors.space.isDown || controls.upIsDown) && (this.body.blocked.down)) {
       this.setVelocityY(-700)
       this.anims.play('jump', true, 0);
-
     }
     
       // this.coordinates.push({ sceneTime: this.scene.time.now, x: this.x, y: this.y });

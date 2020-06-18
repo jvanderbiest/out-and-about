@@ -16,7 +16,7 @@ export default class CoinGroupComponent extends Phaser.GameObjects.Group {
     })
   }
 
-  addCoin = (x: number, y: number, frame: string, scale: number) => {
-    this.add(new CoinComponent(this.scene, x, y, frame, scale, this._pickup, this.score));
+  addCoin = (originalPosition: TilePosition, x: number, y: number, frame: string) => {
+    this.add(new CoinComponent(this.scene, x, y, frame, originalPosition.scale, this._pickup, this.score));
   }
 }

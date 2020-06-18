@@ -1,4 +1,4 @@
-interface AddTile { (x: number, y: number, frame: string, scale?: number): void }
+interface AddTile { (originalPositionData: TilePosition, x: number, y: number, frame: string, scale?: number): void }
 
 export abstract class PositionCalculator {
   public static tile_size = 64;
@@ -19,7 +19,7 @@ export abstract class PositionCalculator {
             yForXRange += position.yOffset;
           }
 
-          add(x, yForXRange, frame, position.scale);
+          add(position, x, yForXRange, frame, position.scale);
 
           if (position.xSkip) {
             count += position.xSkip;
@@ -37,7 +37,7 @@ export abstract class PositionCalculator {
             y += position.yOffset;
           }
 
-          add(xForYRange, y, frame, position.scale);
+          add(position, xForYRange, y, frame, position.scale);
 
           if (position.ySkip) {
             count += position.ySkip;
@@ -52,7 +52,7 @@ export abstract class PositionCalculator {
         if (position.yOffset) {
           y += position.yOffset;
         }
-        add(x, y, frame, position.scale);
+        add(position, x, y, frame);
       }
     })
   }

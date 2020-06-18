@@ -29,7 +29,6 @@ export default class PreloadScene extends Phaser.Scene {
     create() {
         this.scene.start(SceneConstants.StartScene);
         // this.scene.start(SceneConstants.GameScene);
-        
     }
 
     preload() {

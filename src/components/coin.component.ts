@@ -1,5 +1,4 @@
 import { ImageConstants } from "../constants/image.constants"
-import ScoreText from "./scoreText.component";
 import Score from "./score.component";
 
 export default class CoinSingle extends Phaser.Physics.Arcade.Sprite {
@@ -30,7 +29,7 @@ export default class CoinSingle extends Phaser.Physics.Arcade.Sprite {
     collect() {
         if (this.collecting) return;
         this.collecting = true;
-        this._score.add(2);
+        this._score.add(Math.floor(10 * this.scale));
         this._sound.play();
 
         this.scene.tweens.add({

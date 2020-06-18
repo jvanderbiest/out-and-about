@@ -51,6 +51,7 @@ interface TileDetail {
 }
 
 interface TilePosition {
+  name: string;
   x: number;
   y: number;
   xRange: number;
@@ -60,7 +61,9 @@ interface TilePosition {
   noCollide: boolean;
   xOffset: number;
   yOffset: number;
+  xSlide: number;
   scale: number;
+  colliders: Array<string>;
 }
 
 interface PlayerStart {
