@@ -13,7 +13,7 @@ import DoorGoalSprite from '../components/doorGoal.component';
 import DoorKeySprite from '../components/doorKey.component';
 import Inventory from '../components/inventory.component';
 import { SceneConstants } from '../constants/scene.constants';
-import TileGroupDebugComponent from '../components/tileGroupDebug.component';
+import TileGroupComponent from '../components/tileGroup.component';
 import TileComponent from '../components/tile.component';
 import PlayerComponent from '../components/player.component';
 
@@ -64,16 +64,21 @@ export default class GameScene extends Phaser.Scene {
 		var gameWidth = this.sys.game.config.width as number;
 		var totalGameWidth = gameWidth * 1.5;
 
-		var avoidCollisionTiles = level.platform.tiles.filter((tile) =>
-			tile.positions.every(position => position.noCollide));
-		var avoidCollisionTilesGroup = new TileGroupDebugComponent(this, totalGameHeight, totalGameWidth, avoidCollisionTiles);
+		var noCollisionTiles = new Array<TileDetail>();
+		var collistionTiles = new Array<TileDetail>();
 
+		level.platform.tiles.forEach((tile) => {
+			if (tile.noCollision) {
+				noCollisionTiles.push(tile);
+			}
+			else {
+				collistionTiles.push(tile);
+			}
+		});
 
-		var collisionTilesDebug = level.platform.tiles.filter((tile) =>
-			tile.positions.every(position => !position.noCollide));
-		var collisionTilesGroup = new TileGroupDebugComponent(this, totalGameHeight, totalGameWidth, collisionTilesDebug);
-
-
+		var noCollisionTilesGroup = new TileGroupComponent(this, totalGameHeight, totalGameWidth, noCollisionTiles);
+		var waterTilesGroup = noCollisionTilesGroup.getChildren().filter((x : TileComponent) => x.frame.name.startsWith('water'));
+		var collisionTilesGroup = new TileGroupComponent(this, totalGameHeight, totalGameWidth, collistionTiles);
 
 		var goal = new DoorGoalSprite(this)
 		var key = new DoorKeySprite(this)
@@ -91,8 +96,6 @@ export default class GameScene extends Phaser.Scene {
 
 		// filter out colliders and collide them later for jumping hack on dynamic objects.
 		this.physics.add.collider(collisionTilesGroup.getChildren().filter((x: TileComponent) => !x.tileColliders), this.player);
-		this.physics.add.collider(collisionTilesGroup, this.enemiesGroup);
-
 		this.physics.add.collider(collisionTilesGroup, this.enemiesGroup);
 
 		collisionTilesGroup.getChildren().forEach((tileComponent: TileComponent) => {
@@ -124,7 +127,7 @@ export default class GameScene extends Phaser.Scene {
 					// hack to detect blocked body on dynamic gameobject
 					this.physics.add.collider(tileComponent, this.player, (mover, player: PlayerComponent) => {
 						if (player.body.touching.down) {
-							player.body.blocked.down = true;
+							// player.body.blocked.down = true;
 						}
 					});
 				})
@@ -138,6 +141,16 @@ export default class GameScene extends Phaser.Scene {
 				goal.unlockDoor();
 			}
 			// todo show bubble
+		});
+
+		this.physics.add.overlap(this.player, waterTilesGroup, (player: Player, waterTile: TileComponent) => {
+			// make sure the user cannot jump on water because overlap will set body.blocked, we reset this after the tween
+			player.body.blocked.down = false;
+			
+			var isDrowning = player.drown();
+			if (isDrowning) {
+				this.score.add(-3);
+			}
 		})
 
 		this.physics.add.overlap(this.player, key, (player: Player, key: DoorKeySprite) => {

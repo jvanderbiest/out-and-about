@@ -111,11 +111,11 @@
                 "tiles": [
                     {
                         "frame": "mushroom02",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 0,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             }
                         ]
                     },
@@ -130,11 +130,11 @@
                     },
                     {
                         "frame": "grass05",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 0,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             }
                         ]
                     },
@@ -197,58 +197,58 @@
                     },
                     {
                         "frame": "grass07",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 6,
                                 "y": 7,
                                 "yOffset": 4,
-                                "xOffset": -20,
-                                "noCollide": true
+                                "xOffset": -20
                             }
                         ]
                     },
                     {
                         "frame": "grass06",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 5,
                                 "y": 7,
                                 "yOffset": 4,
-                                "xOffset": -20,
-                                "noCollide": true
+                                "xOffset": -20
                             }
                         ]
                     },
                     {
                         "frame": "grass05",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 4,
                                 "y": 7,
-                                "yOffset": 4,
-                                "noCollide": true
+                                "yOffset": 4
                             }
                         ]
                     },
                     {
                         "frame": "stone01",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 18,
-                                "y": 5,
-                                "noCollide": true
+                                "y": 5
                             }
                         ]
                     },
                     {
                         "frame": "stone04",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 5,
                                 "y": 7,
                                 "yOffset": 4,
-                                "xOffset": 20,
-                                "noCollide": true
+                                "xOffset": 20
                             }
                         ]
                     },
@@ -311,50 +311,43 @@
                     
                     {
                         "frame": "ground08",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 8,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 10,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 23,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 25,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 22,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 24,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 14,
                                 "y": 11,
                                 "xRange": 3,
-                                "xSkip": 1,
-                                "noCollide": true
+                                "xSkip": 1
                             },
                             {
                                 "x": 15,
                                 "y": 12,
                                 "xRange": 2,
-                                "xSkip": 1,
-                                "noCollide": true
+                                "xSkip": 1
                             }
                         ]
                     },
@@ -424,75 +417,65 @@
                     
                     {
                         "frame": "flowers copy",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 5,
-                                "y": 4,
-                                "noCollide": true
+                                "y": 4
                             }
                         ]
                     },
                     {
                         "frame": "ground07",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 9,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 9,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 10,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 11,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 11,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 22,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 24,
-                                "y": 6,
-                                "noCollide": true
+                                "y": 6
                             },
                             {
                                 "x": 23,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 25,
-                                "y": 7,
-                                "noCollide": true
+                                "y": 7
                             },
                             {
                                 "x": 13,
                                 "y": 11,
                                 "xRange": 5,
-                                "xSkip": 1,
-                                "noCollide": true
+                                "xSkip": 1
                             },
                             {
                                 "x": 14,
                                 "y": 12,
                                 "xRange": 5,
-                                "xSkip": 1,
-                                "noCollide": true
+                                "xSkip": 1
                             }
                         ]
                     },
@@ -632,49 +615,49 @@
                     },
                     {
                         "frame": "water1_transp",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 14,
                                 "y": 5,
                                 "xRange": 5,
                                 "xSkip": 1,
-                                "yOffset": 24,
-                                "noCollide": true
+                                "yOffset": 24
                             }
                         ]
                     },
                     {
                         "frame": "water2_transp",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 15,
                                 "y": 5,
                                 "xRange": 3,
                                 "xSkip": 1,
-                                "yOffset": 24,
-                                "noCollide": true
+                                "yOffset": 24
                             }
                         ]
                     },
                     {
                         "frame": "water_full_1_transp",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 15,
                                 "y": 4,
                                 "xRange": 3,
-                                "xSkip": 1,
-                                "noCollide": true
+                                "xSkip": 1
                             }
                         ]
                     },
                     {
                         "frame": "water_full_2_transp",
+                        "noCollision": true,
                         "positions": [
                             {
                                 "x": 16,
-                                "y": 4,
-                                "noCollide": true
+                                "y": 4
                             }
                         ]
                     },

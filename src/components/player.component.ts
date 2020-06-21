@@ -10,12 +10,12 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
     super(scene, player.width, player.height, player.texture)
     scene.add.existing(this);
     scene.physics.add.existing(this);
-    this.setSize(player.width - 10, player.height)
+    this.setSize(player.width - 10, player.height);
     this.setOffset(5, 0);
-    this.setPosition(60, 0)
+    this.setPosition(60, 0);
     this.scale = 1.5;
-    this.setBounce(0.2)
-    this.setCollideWorldBounds(true)
+    this.setBounce(0.2);
+    this.setCollideWorldBounds(true);
 
     this.scene.anims.create({
       key: 'run',
@@ -42,26 +42,41 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
     this.play('idle')
 
     this.setVisible(true)
-
-    // this.setOrigin(0, 1)
-    // this.setDragX(500)
-    // this.body.setSize(70, 132)
-    // this.body.setOffset(25, 24)
   }
 
   _isHurting: boolean;
+  _isDrowning: boolean;
 
-  showKeyBubble() {
-    var image = this.scene.add.image(this.x, this.y, ImageConstants.GameTexture, 'think-bubble');
+  drown(): boolean {
+    if (!this._isDrowning) {
+      this._isDrowning = true;
 
-    // text.setScrollFactor(0);
+      this.scene.tweens.add({
+        targets: this,
+        alpha: {
+          getStart: () => 0.4,
+          getEnd: () => 0
+        },
+        ease: 'Cubic.easeOut',
+        duration: 100,
+        repeat: 4,
+        yoyo: true,
+        onComplete: () => {
+          this._isDrowning = false;
+          this.alpha = 1;
+        }
+      });
+
+      return true;
+    }
+    return false;
   }
 
   hurt(): boolean {
     // this._dead = true
     if (!this._isHurting) {
       this._isHurting = true;
-   
+
       var x = 100;
       if (this.body.velocity.x > 0) {
         x = -x;
@@ -86,7 +101,6 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
 
       return true;
     }
-    console.log("player got not hurt, _isHurting " + this._isHurting);
     return false;
   }
 
@@ -105,33 +119,33 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
   // setGhost() {
   //   this.isGhostMode = true;
   //   this.setAlpha(0.5);
-    
+
   // }
 
   // _currentDelay: number;
 
-//   onReplayEvent() {
-//     var current = this.coordinates[0];
-    
-//     while (this.scene.time.now - current.sceneTime > current.sceneTime) {
-//       this.setX(current.x);
-//       this.setY(current.y);
-//       this.coordinates.shift();
-//       current = this.coordinates[0];
-//     }
-//   }
-  
-//   isGhostMode: boolean;
-// if (this.isGhostMode) {
-//   this.onReplayEvent();
-//   return;
-// }
+  //   onReplayEvent() {
+  //     var current = this.coordinates[0];
+
+  //     while (this.scene.time.now - current.sceneTime > current.sceneTime) {
+  //       this.setX(current.x);
+  //       this.setY(current.y);
+  //       this.coordinates.shift();
+  //       current = this.coordinates[0];
+  //     }
+  //   }
+
+  //   isGhostMode: boolean;
+  // if (this.isGhostMode) {
+  //   this.onReplayEvent();
+  //   return;
+  // }
 
   update(cursors: any, controls: Controls) {
 
-// if (cursors.shift.isDown) {
-//   this.setGhost();
-// }
+    // if (cursors.shift.isDown) {
+    //   this.setGhost();
+    // }
 
     if (cursors.left.isDown || controls.leftIsDown) {
       this.setVelocityX(-250);
@@ -150,11 +164,17 @@ export default class PlayerComponent extends Phaser.Physics.Arcade.Sprite {
     }
 
     if ((cursors.up.isDown || cursors.space.isDown || controls.upIsDown) && (this.body.blocked.down)) {
-      this.setVelocityY(-700)
+      if (this._isDrowning) {
+        // when he's drowning, don't let him jump that high so he stays more in the water.
+        this.setVelocityY(-500)
+      }
+      else {
+        this.setVelocityY(-700)
+      }
       this.anims.play('jump', true, 0);
     }
-    
-      // this.coordinates.push({ sceneTime: this.scene.time.now, x: this.x, y: this.y });
+
+    // this.coordinates.push({ sceneTime: this.scene.time.now, x: this.x, y: this.y });
   }
 }
 

@@ -16,6 +16,10 @@ export default class TileComponent extends Phaser.Physics.Arcade.Sprite {
     }
     scene.physics.add.existing(this, isStatic)
 
+    if (this.frame.name.startsWith('water')) {
+      this.body.immovable = true;
+    }
+
     if (tilePosition?.xSlide) {
       //@ts-ignore
       this.body.allowGravity = false;

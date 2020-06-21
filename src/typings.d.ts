@@ -46,8 +46,9 @@ interface Platform {
 }
 
 interface TileDetail {
-  frame: string,
-  positions: Array<TilePosition>
+  frame: string;
+  noCollision: boolean;
+  positions: Array<TilePosition>;
 }
 
 interface TilePosition {
@@ -58,7 +59,6 @@ interface TilePosition {
   xSkip: number;
   yRange: number;
   ySkip: number;
-  noCollide: boolean;
   xOffset: number;
   yOffset: number;
   xSlide: number;
